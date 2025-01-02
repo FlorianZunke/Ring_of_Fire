@@ -1,0 +1,28 @@
+@for (player of game.players; track player; let index = $index) {
+<app-player [ngStyle]="{'top.px' : 120 + (index * 95)}" class="player-positioning" [name]="player"></app-player>
+}
+
+
+<section>
+    <div>
+        <!-- Card stack -->
+        @for (card of [0, 1, 2, 3, 4]; track card; let index = $index) {
+        <img [ngStyle]="{'left.px' : index * 5}" src="./assets/Cards/card-cover.png" alt="">
+        }
+        <img (click)="drawCard()" class="top-card" style="left: 25px;" src="/assets/Cards/card-cover.png" alt="">
+
+        <!-- Stack of played Cards -->
+        @for (cards of game.playedCards; track cards) {
+        <img class="played-card" src="./assets/Cards/{{ cards }}.png" alt="">
+        }
+
+        <!-- current Card (Animation) -->
+        <img (click)="drawCard()" *ngIf="drawCardAnimation" class="pick-card" style="left: 25px;"
+            src="./assets/Cards/{{ currentCard }}.png" alt="">
+
+    </div>
+</section>
+
+<button mat-fab (click)="openDialog()" color="primary">
+    <mat-icon>add</mat-icon>
+</button>
