@@ -39,13 +39,12 @@ export class GameComponent {
 
 
   drawCard() {
+    if (this.drawCardAnimation) return
+    else  this.drawCardAnimation = true;
+     
     let currentCards = this.game.cardStack.pop(); ;
     if (currentCards != undefined) {
       this.currentCard = currentCards
-    }
-
-    if (!this.drawCardAnimation) {
-      this.drawCardAnimation = true;
     }
 
     setTimeout(() => {
