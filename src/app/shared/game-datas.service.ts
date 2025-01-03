@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class GameDatasService {
 
-  players: string[] = ['Sephi', 'Flori', 'Jan', 'Marco'];
+  players: string[] = [];
   cardStack: string[] = [];
   playedCards: string[] = [];
   currentPLayer: number = 0;
